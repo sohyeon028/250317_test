@@ -9,22 +9,53 @@
         body{
             background-color: lightpink;
         }
-        .bgcolor--blue{
+        .bgcolor--lightskyblue{
             background-color: lightskyblue;
+        }
+        .bgcolor--gray{
+            background-color: gray;
+        }
+        .btns{
+            position: relative;
+            top: 150px;
+            width: 600px;
+            margin: auto;
+            text-align: center;
         }
     </style>
 
 </head>
+
+
 <body>
-    <button class="btn_bg">배경색상변경</button>
-    
+    <div class="btns">
+    <button class="btn_bg">배경색상변경_토글버튼</button>
+    <button class="btn--reset">배경색상변경_리셋</button>
+    <button class="btn--bggray">배경색상변경_그레이</button>
+    </div>
+
+
     <script>
         const btnBg = document.querySelector('.btn_bg'); //여기서 btnBg, 두번째 B를 대문자로 했으면
         btnBg.addEventListener('click', function () { //여기서도 btnBg, 두번째 B 대문자로 해야 됨
-            document.body.classList.toggle('bgcolor--blue');
-         
+            document.body.classList.toggle('bgcolor--lightskyblue');
+            document.body.classList.remove('bgcolor--gray');
+        }); //첫번째 배경색상변경_토글버튼
+
+        const btnReset = document.querySelector('.btn--reset');
+        const btnBgGray = document.querySelector('.btn--bggray');
+        btnReset.addEventListener('click', function (){
+            document.body.classList.remove('bgcolor--lightskyblue');
+            document.body.classList.remove('bgcolor--gray');
         });
+        btnBgGray.addEventListener('click', function (){
+            document.body.classList.add('bgcolor--gray');
+            
+        });
+        //const input = prompt('message', '_default');
+        //alert(input)
     </script>
+
 
 </body>
 </html>
